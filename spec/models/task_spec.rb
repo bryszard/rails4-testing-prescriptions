@@ -30,4 +30,6 @@ RSpec.describe Task do
     
   end
   
+  it_should_behave_like 'sizeable'
+  
 end

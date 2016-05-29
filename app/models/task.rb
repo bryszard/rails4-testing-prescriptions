@@ -1,17 +1,12 @@
-class Task
-  attr_accessor :size, :completed_at
-
-  def initialize(options = {})
-    mark_completed(options[:completed_at]) if options[:completed_at]
-    @size = options[:size]
-  end
+class Task < ActiveRecord::Base
+  belongs_to :project
   
   def mark_completed(date=nil)
-    @completed_at = (date || Time.current)
+    self.completed_at = (date || Time.current)
   end
   
   def complete?
-    @completed_at.present?
+    completed_at.present?
   end
   
   def part_of_velocity?
@@ -21,6 +16,14 @@ class Task
   
   def points_toward_velocity
     if part_of_velocity? then size else 0 end
+  end
+  
+  def small?
+    size <= 1
+  end
+  
+  def epic?
+    size >= 5
   end
   
 end
