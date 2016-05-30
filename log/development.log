@@ -581,3 +581,330 @@ Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2016-05-29 18:54:54 +020
 
 
 Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 18:54:54 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tasks_on_project_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tasks_on_project_id' AND type='index'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-30 14:38:14 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/railties-4.1.15/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 31ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 14:38:19 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.3ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 1]]
+  Rendered projects/index.html.erb within layouts/application (43.0ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 1.6ms)
+
+ActionView::Template::Error (comparison of Date with nil failed):
+     9:   <tbody>
+    10:     <% @projects.each do |project| %>
+    11:       <tr class='project-row' id='<%= dom_id(project) %>'>
+    12:         <td class='name'><%= name_with_status(project) %></td>
+    13:         <td class='total-size'><%= project.total_size %></td>
+    14:       </tr>
+    15:     <% end %>
+  app/models/project.rb:40:in `<='
+  app/models/project.rb:40:in `on_schedule?'
+  app/helpers/projects_helper.rb:4:in `name_with_status'
+  app/views/projects/index.html.erb:12:in `block in _app_views_projects_index_html_erb__3808663602811502886_39949700'
+  app/views/projects/index.html.erb:10:in `_app_views_projects_index_html_erb__3808663602811502886_39949700'
+
+
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.4ms)
+  [1m[36mProject Load (1.9ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 14:41:41 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 1]]
+  Rendered projects/index.html.erb within layouts/application (109348.3ms)
+Completed 500 Internal Server Error in 109354ms (ActiveRecord: 2.2ms)
+
+ActionView::Template::Error (comparison of Date with nil failed):
+     9:   <tbody>
+    10:     <% @projects.each do |project| %>
+    11:       <tr class='project-row' id='<%= dom_id(project) %>'>
+    12:         <td class='name'><%= name_with_status(project) %></td>
+    13:         <td class='total-size'><%= project.total_size %></td>
+    14:       </tr>
+    15:     <% end %>
+  app/models/project.rb:41:in `<='
+  app/models/project.rb:41:in `on_schedule?'
+  app/helpers/projects_helper.rb:4:in `name_with_status'
+  app/views/projects/index.html.erb:12:in `block in _app_views_projects_index_html_erb__3808663602811502886_39949700'
+  app/views/projects/index.html.erb:10:in `_app_views_projects_index_html_erb__3808663602811502886_39949700'
+
+
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.9ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 14:43:36 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 1]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 2]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 3]]
+  Rendered projects/index.html.erb within layouts/application (27.5ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.9ms)
+
+ActionView::Template::Error (Infinity):
+     9:   <tbody>
+    10:     <% @projects.each do |project| %>
+    11:       <tr class='project-row' id='<%= dom_id(project) %>'>
+    12:         <td class='name'><%= name_with_status(project) %></td>
+    13:         <td class='total-size'><%= project.total_size %></td>
+    14:       </tr>
+    15:     <% end %>
+  app/models/project.rb:40:in `on_schedule?'
+  app/helpers/projects_helper.rb:4:in `name_with_status'
+  app/views/projects/index.html.erb:12:in `block in _app_views_projects_index_html_erb__3808663602811502886_39949700'
+  app/views/projects/index.html.erb:10:in `_app_views_projects_index_html_erb__3808663602811502886_39949700'
+
+
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.7ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 14:44:57 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 1]]
+  [1m[35mTask Load (0.6ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 2]]
+  [1m[36mTask Load (0.7ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (207837.3ms)
+Completed 500 Internal Server Error in 207842ms (ActiveRecord: 3.3ms)
+
+ActionView::Template::Error (Infinity):
+     9:   <tbody>
+    10:     <% @projects.each do |project| %>
+    11:       <tr class='project-row' id='<%= dom_id(project) %>'>
+    12:         <td class='name'><%= name_with_status(project) %></td>
+    13:         <td class='total-size'><%= project.total_size %></td>
+    14:       </tr>
+    15:     <% end %>
+  app/models/project.rb:40:in `on_schedule?'
+  app/helpers/projects_helper.rb:5:in `name_with_status'
+  app/views/projects/index.html.erb:12:in `block in _app_views_projects_index_html_erb__3808663602811502886_39949700'
+  app/views/projects/index.html.erb:10:in `_app_views_projects_index_html_erb__3808663602811502886_39949700'
+
+
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 14:48:55 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+  Rendered projects/index.html.erb within layouts/application (10075.6ms)
+Completed 500 Internal Server Error in 10079ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (Infinity):
+     9:   <tbody>
+    10:     <% @projects.each do |project| %>
+    11:       <tr class='project-row' id='<%= dom_id(project) %>'>
+    12:         <td class='name'><%= name_with_status(project) %></td>
+    13:         <td class='total-size'><%= project.total_size %></td>
+    14:       </tr>
+    15:     <% end %>
+  app/models/project.rb:40:in `on_schedule?'
+  app/helpers/projects_helper.rb:5:in `name_with_status'
+  app/views/projects/index.html.erb:12:in `block in _app_views_projects_index_html_erb__3808663602811502886_39949700'
+  app/views/projects/index.html.erb:10:in `_app_views_projects_index_html_erb__3808663602811502886_39949700'
+
+
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 14:49:10 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[35mTask Load (0.7ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+  Rendered projects/index.html.erb within layouts/application (157885.9ms)
+Completed 500 Internal Server Error in 157888ms (ActiveRecord: 1.5ms)
+
+ActionView::Template::Error (Infinity):
+     9:   <tbody>
+    10:     <% @projects.each do |project| %>
+    11:       <tr class='project-row' id='<%= dom_id(project) %>'>
+    12:         <td class='name'><%= name_with_status(project) %></td>
+    13:         <td class='total-size'><%= project.total_size %></td>
+    14:       </tr>
+    15:     <% end %>
+  app/models/project.rb:40:in `on_schedule?'
+  app/helpers/projects_helper.rb:5:in `name_with_status'
+  app/views/projects/index.html.erb:12:in `block in _app_views_projects_index_html_erb__3808663602811502886_39949700'
+  app/views/projects/index.html.erb:10:in `_app_views_projects_index_html_erb__3808663602811502886_39949700'
+
+
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.2ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 14:51:52 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+  Rendered projects/index.html.erb within layouts/application (157738.3ms)
+Completed 500 Internal Server Error in 157742ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error (Infinity):
+     9:   <tbody>
+    10:     <% @projects.each do |project| %>
+    11:       <tr class='project-row' id='<%= dom_id(project) %>'>
+    12:         <td class='name'><%= name_with_status(project) %></td>
+    13:         <td class='total-size'><%= project.total_size %></td>
+    14:       </tr>
+    15:     <% end %>
+  app/models/project.rb:40:in `on_schedule?'
+  app/helpers/projects_helper.rb:5:in `name_with_status'
+  app/views/projects/index.html.erb:12:in `block in _app_views_projects_index_html_erb__3808663602811502886_39949700'
+  app/views/projects/index.html.erb:10:in `_app_views_projects_index_html_erb__3808663602811502886_39949700'
+
+
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 14:54:33 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  Rendered projects/index.html.erb within layouts/application (6743.2ms)
+Completed 500 Internal Server Error in 6749ms (ActiveRecord: 2.6ms)
+
+ActionView::Template::Error (undefined method `infinity?' for 0.047619047619047616:Float
+Did you mean?  infinite?):
+     9:   <tbody>
+    10:     <% @projects.each do |project| %>
+    11:       <tr class='project-row' id='<%= dom_id(project) %>'>
+    12:         <td class='name'><%= name_with_status(project) %></td>
+    13:         <td class='total-size'><%= project.total_size %></td>
+    14:       </tr>
+    15:     <% end %>
+  app/models/project.rb:35:in `projected_days_remaining'
+  app/models/project.rb:40:in `on_schedule?'
+  app/helpers/projects_helper.rb:5:in `name_with_status'
+  app/views/projects/index.html.erb:12:in `block in _app_views_projects_index_html_erb__3808663602811502886_39949700'
+  app/views/projects/index.html.erb:10:in `_app_views_projects_index_html_erb__3808663602811502886_39949700'
+
+
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 14:55:54 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+  Rendered projects/index.html.erb within layouts/application (4259.7ms)
+Completed 500 Internal Server Error in 4265ms (ActiveRecord: 2.7ms)
+
+ActionView::Template::Error (Infinity):
+     9:   <tbody>
+    10:     <% @projects.each do |project| %>
+    11:       <tr class='project-row' id='<%= dom_id(project) %>'>
+    12:         <td class='name'><%= name_with_status(project) %></td>
+    13:         <td class='total-size'><%= project.total_size %></td>
+    14:       </tr>
+    15:     <% end %>
+  app/models/project.rb:41:in `on_schedule?'
+  app/helpers/projects_helper.rb:5:in `name_with_status'
+  app/views/projects/index.html.erb:12:in `block in _app_views_projects_index_html_erb__3808663602811502886_39949700'
+  app/views/projects/index.html.erb:10:in `_app_views_projects_index_html_erb__3808663602811502886_39949700'
+
+
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/actionpack-4.1.15/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.7ms)
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 3]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 3]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 3]]
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  "projects".* FROM "projects"   ORDER BY "projects"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 15:04:23 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 3]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 4]]
+  Rendered projects/index.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 667ms (Views: 661.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2016-05-30 15:04:24 +0200
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2016-05-30 15:04:24 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-30 15:04:24 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-30 15:04:24 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-30 15:04:24 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-30 15:04:24 +0200
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2016-05-30 15:04:24 +0200
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2016-05-30 15:04:24 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-30 15:04:24 +0200

@@ -1452,3 +1452,849 @@ Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms)
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
   [1m[35m (0.0ms)[0m  begin transaction
   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+------------------------------------
+ProjectsControllerTest: test_routing
+------------------------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+ProjectsControllerTest: test_the_index_method_displays_all_projects_correctly
+-----------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("completed_at", "created_at", "size", "updated_at") VALUES (?, ?, ?, ?)  [["completed_at", "2016-05-29 12:16:19.391555"], ["created_at", "2016-05-30 12:16:19.406473"], ["size", 1], ["updated_at", "2016-05-30 12:16:19.406473"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-30 12:16:19.450228"], ["due_date", "2017-05-30"], ["name", "On Schedule"], ["updated_at", "2016-05-30 12:16:19.450228"]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["project_id", 1], ["updated_at", "2016-05-30 12:16:19.451831"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:16:19.454326"], ["size", 1], ["updated_at", "2016-05-30 12:16:19.454326"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-30 12:16:19.456266"], ["due_date", "2016-05-31"], ["name", "Behind Schedule"], ["updated_at", "2016-05-30 12:16:19.456266"]]
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 2[0m  [["project_id", 2], ["updated_at", "2016-05-30 12:16:19.457269"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------
+ProjectsControllerTest: test_the_project_method_creates_a_project
+-----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+TaskTest: test_a_completed_task_is_complete
+-------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------------
+TaskTest: test_a_task_completed_long_ago_does_not_count_toward_velocity
+-----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------------
+TaskTest: test_a_task_completed_recently_counts_toward_velocity
+---------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------
+TaskTest: test_an_uncompleted_task_does_not_count_toward_velocity
+-----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+ProjectsHelperTest: test_project_name_using_assert_select
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info
+------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info_behind_schedule
+----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------
+ProjectsControllerTest: test_routing
+------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+ProjectsControllerTest: test_the_index_method_displays_all_projects_correctly
+-----------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("completed_at", "created_at", "size", "updated_at") VALUES (?, ?, ?, ?)  [["completed_at", "2016-05-29 12:20:02.537731"], ["created_at", "2016-05-30 12:20:02.547409"], ["size", 1], ["updated_at", "2016-05-30 12:20:02.547409"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-30 12:20:02.561588"], ["due_date", "2017-05-30"], ["name", "On Schedule"], ["updated_at", "2016-05-30 12:20:02.561588"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["project_id", 1], ["updated_at", "2016-05-30 12:20:02.562595"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:20:02.564138"], ["size", 1], ["updated_at", "2016-05-30 12:20:02.564138"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-30 12:20:02.565313"], ["due_date", "2016-05-31"], ["name", "Behind Schedule"], ["updated_at", "2016-05-30 12:20:02.565313"]]
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 2[0m  [["project_id", 2], ["updated_at", "2016-05-30 12:20:02.565936"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+Completed 200 OK in 1380ms (Views: 1379.2ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+ProjectsControllerTest: test_the_project_method_creates_a_project
+-----------------------------------------------------------------
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"Runway", "tasks"=>"start something:2"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:20:04.007369"], ["name", "Runway"], ["updated_at", "2016-05-30 12:20:04.007369"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 12:20:04.008698"], ["project_id", 1], ["size", 2], ["title", "start something"], ["updated_at", "2016-05-30 12:20:04.008698"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+ProjectsHelperTest: test_project_name_using_assert_select
+---------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info_behind_schedule
+----------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+TaskTest: test_a_completed_task_is_complete
+-------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------
+TaskTest: test_a_task_completed_long_ago_does_not_count_toward_velocity
+-----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------
+TaskTest: test_a_task_completed_recently_counts_toward_velocity
+---------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+TaskTest: test_an_uncompleted_task_does_not_count_toward_velocity
+-----------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------------------------------------
+ProjectsHelperTest: test_project_name_using_assert_select
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info
+------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info_behind_schedule
+----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+TaskTest: test_a_completed_task_is_complete
+-------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------------
+TaskTest: test_a_task_completed_long_ago_does_not_count_toward_velocity
+-----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------------
+TaskTest: test_a_task_completed_recently_counts_toward_velocity
+---------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------
+TaskTest: test_an_uncompleted_task_does_not_count_toward_velocity
+-----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------
+ProjectsControllerTest: test_routing
+------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+ProjectsControllerTest: test_the_index_method_displays_all_projects_correctly
+-----------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("completed_at", "created_at", "size", "updated_at") VALUES (?, ?, ?, ?)  [["completed_at", "2016-05-29 12:22:57.451948"], ["created_at", "2016-05-30 12:22:57.453956"], ["size", 1], ["updated_at", "2016-05-30 12:22:57.453956"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-30 12:22:57.467238"], ["due_date", "2017-05-30"], ["name", "On Schedule"], ["updated_at", "2016-05-30 12:22:57.467238"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["project_id", 1], ["updated_at", "2016-05-30 12:22:57.468360"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:22:57.470085"], ["size", 1], ["updated_at", "2016-05-30 12:22:57.470085"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-30 12:22:57.471209"], ["due_date", "2016-05-31"], ["name", "Behind Schedule"], ["updated_at", "2016-05-30 12:22:57.471209"]]
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 2[0m  [["project_id", 2], ["updated_at", "2016-05-30 12:22:57.471822"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+ProjectsControllerTest: test_the_project_method_creates_a_project
+-----------------------------------------------------------------
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"Runway", "tasks"=>"start something:2"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:22:57.511329"], ["name", "Runway"], ["updated_at", "2016-05-30 12:22:57.511329"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 12:22:57.512203"], ["project_id", 1], ["size", 2], ["title", "start something"], ["updated_at", "2016-05-30 12:22:57.512203"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 12:25:34.047685"], ["name", "Test"], ["updated_at", "2016-05-30 12:25:34.047685"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 12:25:34.053112"], ["project_id", 1], ["size", 3], ["title", "Start things"], ["updated_at", "2016-05-30 12:25:34.053112"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 12:25:34.054932"], ["project_id", 1], ["size", 2], ["title", "End things"], ["updated_at", "2016-05-30 12:25:34.054932"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"Runway", "tasks"=>"Start something:2"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:25:34.069413"], ["name", "Runway"], ["updated_at", "2016-05-30 12:25:34.069413"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 12:25:34.071088"], ["project_id", 1], ["size", 2], ["title", "Start something"], ["updated_at", "2016-05-30 12:25:34.071088"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"", "tasks"=>""}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 68ms (Views: 12.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-30 12:25:34.149261"], ["size", 2], ["title", "Write section on testing mailers"], ["updated_at", "2016-05-30 12:25:34.149261"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"size"=>"3"}, "id"=>"1"}
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "tasks" SET "size" = ?, "updated_at" = ? WHERE "tasks"."id" = 1[0m  [["size", 3], ["updated_at", "2016-05-30 12:25:34.157245"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("created_at", "size", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-30 12:25:34.164433"], ["size", 2], ["title", "Write section on testing mailers"], ["updated_at", "2016-05-30 12:25:34.164433"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"size"=>"3", "completed"=>true}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "tasks" SET "completed_at" = ?, "size" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["completed_at", "2016-05-30 12:25:34.169464"], ["size", 3], ["updated_at", "2016-05-30 12:25:34.170413"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+TaskMailer#task_completed_email: processed outbound mail in 237.6ms
+
+Sent mail to monitor@tasks.com (6.1ms)
+Date: Mon, 30 May 2016 14:25:34 +0200
+From: from@example.com
+To: monitor@tasks.com
+Message-ID: <574c313e65e42_4246e430e09234@Brychu.mail>
+Subject: A task has been completed
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+The task Write section on testing mailers was completed at 2016-05-30 12:25:34 UTC.
+
+Thanks,
+The Management
+
+
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 252ms (ActiveRecord: 0.6ms)
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Started GET "/projects/new" for 127.0.0.1 at 2016-05-30 14:25:34 +0200
+Processing by ProjectsController#new as HTML
+Completed 200 OK in 80ms (Views: 63.4ms | ActiveRecord: 0.0ms)
+Started POST "/projects" for 127.0.0.1 at 2016-05-30 14:25:34 +0200
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "project"=>{"name"=>"Project Runway", "tasks"=>"Task 1:3\r\nTask 2:5\r\n"}, "commit"=>"Create Project"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 12:25:34.682128"], ["name", "Project Runway"], ["updated_at", "2016-05-30 12:25:34.682128"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 12:25:34.683931"], ["project_id", 1], ["size", 3], ["title", "Task 1"], ["updated_at", "2016-05-30 12:25:34.683931"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 12:25:34.685436"], ["project_id", 1], ["size", 5], ["title", "Task 2"], ["updated_at", "2016-05-30 12:25:34.685436"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects
+Completed 302 Found in 8ms (ActiveRecord: 0.8ms)
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 14:25:34 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 1]]
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.4ms)
+Started GET "/projects" for 127.0.0.1 at 2016-05-30 14:25:34 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 1]]
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."name" = 'Project Runway' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+TaskTest: test_a_completed_task_is_complete
+-------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------------
+TaskTest: test_a_task_completed_long_ago_does_not_count_toward_velocity
+-----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------------
+TaskTest: test_a_task_completed_recently_counts_toward_velocity
+---------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------
+TaskTest: test_an_uncompleted_task_does_not_count_toward_velocity
+-----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------
+ProjectsControllerTest: test_routing
+------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+ProjectsControllerTest: test_the_index_method_displays_all_projects_correctly
+-----------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tasks" ("completed_at", "created_at", "size", "updated_at") VALUES (?, ?, ?, ?)  [["completed_at", "2016-05-29 12:29:12.637237"], ["created_at", "2016-05-30 12:29:12.640991"], ["size", 1], ["updated_at", "2016-05-30 12:29:12.640991"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-30 12:29:12.658810"], ["due_date", "2017-05-30"], ["name", "On Schedule"], ["updated_at", "2016-05-30 12:29:12.658810"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["project_id", 1], ["updated_at", "2016-05-30 12:29:12.659971"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:29:12.661908"], ["size", 1], ["updated_at", "2016-05-30 12:29:12.661908"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-30 12:29:12.663155"], ["due_date", "2016-05-31"], ["name", "Behind Schedule"], ["updated_at", "2016-05-30 12:29:12.663155"]]
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 2[0m  [["project_id", 2], ["updated_at", "2016-05-30 12:29:12.663831"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+ProjectsControllerTest: test_the_project_method_creates_a_project
+-----------------------------------------------------------------
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"Runway", "tasks"=>"start something:2"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:29:12.695195"], ["name", "Runway"], ["updated_at", "2016-05-30 12:29:12.695195"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 12:29:12.696997"], ["project_id", 1], ["size", 2], ["title", "start something"], ["updated_at", "2016-05-30 12:29:12.696997"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+ProjectsHelperTest: test_project_name_using_assert_select
+---------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info_behind_schedule
+----------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+TaskTest: test_a_completed_task_is_complete
+-------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------------
+TaskTest: test_a_task_completed_long_ago_does_not_count_toward_velocity
+-----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------------
+TaskTest: test_a_task_completed_recently_counts_toward_velocity
+---------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------
+TaskTest: test_an_uncompleted_task_does_not_count_toward_velocity
+-----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------
+ProjectsControllerTest: test_routing
+------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+ProjectsControllerTest: test_the_index_method_displays_all_projects_correctly
+-----------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("completed_at", "created_at", "size", "updated_at") VALUES (?, ?, ?, ?)  [["completed_at", "2016-05-29 12:29:22.183431"], ["created_at", "2016-05-30 12:29:22.187020"], ["size", 1], ["updated_at", "2016-05-30 12:29:22.187020"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-30 12:29:22.202481"], ["due_date", "2017-05-30"], ["name", "On Schedule"], ["updated_at", "2016-05-30 12:29:22.202481"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["project_id", 1], ["updated_at", "2016-05-30 12:29:22.203577"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:29:22.205538"], ["size", 1], ["updated_at", "2016-05-30 12:29:22.205538"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-30 12:29:22.206924"], ["due_date", "2016-05-31"], ["name", "Behind Schedule"], ["updated_at", "2016-05-30 12:29:22.206924"]]
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 2[0m  [["project_id", 2], ["updated_at", "2016-05-30 12:29:22.207590"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+ProjectsControllerTest: test_the_project_method_creates_a_project
+-----------------------------------------------------------------
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"Runway", "tasks"=>"start something:2"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:29:22.226147"], ["name", "Runway"], ["updated_at", "2016-05-30 12:29:22.226147"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 12:29:22.227510"], ["project_id", 1], ["size", 2], ["title", "start something"], ["updated_at", "2016-05-30 12:29:22.227510"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+ProjectsHelperTest: test_project_name_using_assert_select
+---------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info
+------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info_behind_schedule
+----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+TaskTest: test_a_completed_task_is_complete
+-------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------------
+TaskTest: test_a_task_completed_long_ago_does_not_count_toward_velocity
+-----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------------
+TaskTest: test_a_task_completed_recently_counts_toward_velocity
+---------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------
+TaskTest: test_an_uncompleted_task_does_not_count_toward_velocity
+-----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+ProjectsHelperTest: test_project_name_using_assert_select
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info
+------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info_behind_schedule
+----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------
+ProjectsControllerTest: test_routing
+------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+ProjectsControllerTest: test_the_index_method_displays_all_projects_correctly
+-----------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tasks" ("completed_at", "created_at", "size", "updated_at") VALUES (?, ?, ?, ?)  [["completed_at", "2016-05-29 12:30:34.053391"], ["created_at", "2016-05-30 12:30:34.055979"], ["size", 1], ["updated_at", "2016-05-30 12:30:34.055979"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-30 12:30:34.070681"], ["due_date", "2017-05-30"], ["name", "On Schedule"], ["updated_at", "2016-05-30 12:30:34.070681"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["project_id", 1], ["updated_at", "2016-05-30 12:30:34.071795"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:30:34.073430"], ["size", 1], ["updated_at", "2016-05-30 12:30:34.073430"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-30 12:30:34.074968"], ["due_date", "2016-05-31"], ["name", "Behind Schedule"], ["updated_at", "2016-05-30 12:30:34.074968"]]
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 2[0m  [["project_id", 2], ["updated_at", "2016-05-30 12:30:34.075884"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+ProjectsControllerTest: test_the_project_method_creates_a_project
+-----------------------------------------------------------------
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"Runway", "tasks"=>"start something:2"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 12:30:34.093303"], ["name", "Runway"], ["updated_at", "2016-05-30 12:30:34.093303"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 12:30:34.094101"], ["project_id", 1], ["size", 2], ["title", "start something"], ["updated_at", "2016-05-30 12:30:34.094101"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+TaskTest: test_a_completed_task_is_complete
+-------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------------
+TaskTest: test_a_task_completed_long_ago_does_not_count_toward_velocity
+-----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------------
+TaskTest: test_a_task_completed_recently_counts_toward_velocity
+---------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------
+TaskTest: test_an_uncompleted_task_does_not_count_toward_velocity
+-----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+ProjectsHelperTest: test_project_name_using_assert_select
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info
+------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info_behind_schedule
+----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------
+ProjectsControllerTest: test_routing
+------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+ProjectsControllerTest: test_the_index_method_displays_all_projects_correctly
+-----------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("completed_at", "created_at", "size", "updated_at") VALUES (?, ?, ?, ?)  [["completed_at", "2016-05-29 13:04:49.942208"], ["created_at", "2016-05-30 13:04:49.944389"], ["size", 1], ["updated_at", "2016-05-30 13:04:49.944389"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-30 13:04:49.956152"], ["due_date", "2017-05-30"], ["name", "On Schedule"], ["updated_at", "2016-05-30 13:04:49.956152"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["project_id", 1], ["updated_at", "2016-05-30 13:04:49.957120"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 13:04:49.958968"], ["size", 1], ["updated_at", "2016-05-30 13:04:49.958968"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-30 13:04:49.960813"], ["due_date", "2016-05-31"], ["name", "Behind Schedule"], ["updated_at", "2016-05-30 13:04:49.960813"]]
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 2[0m  [["project_id", 2], ["updated_at", "2016-05-30 13:04:49.962019"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+ProjectsControllerTest: test_the_project_method_creates_a_project
+-----------------------------------------------------------------
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"Runway", "tasks"=>"start something:2"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 13:04:50.007676"], ["name", "Runway"], ["updated_at", "2016-05-30 13:04:50.007676"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 13:04:50.008612"], ["project_id", 1], ["size", 2], ["title", "start something"], ["updated_at", "2016-05-30 13:04:50.008612"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+ProjectsHelperTest: test_project_name_using_assert_select
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info
+------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info_behind_schedule
+----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+TaskTest: test_a_completed_task_is_complete
+-------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------------
+TaskTest: test_a_task_completed_long_ago_does_not_count_toward_velocity
+-----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------------
+TaskTest: test_a_task_completed_recently_counts_toward_velocity
+---------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------
+TaskTest: test_an_uncompleted_task_does_not_count_toward_velocity
+-----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------
+ProjectsControllerTest: test_routing
+------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+ProjectsControllerTest: test_the_index_method_displays_all_projects_correctly
+-----------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("completed_at", "created_at", "size", "updated_at") VALUES (?, ?, ?, ?)  [["completed_at", "2016-05-29 13:06:09.415824"], ["created_at", "2016-05-30 13:06:09.419266"], ["size", 1], ["updated_at", "2016-05-30 13:06:09.419266"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-30 13:06:09.431558"], ["due_date", "2017-05-30"], ["name", "On Schedule"], ["updated_at", "2016-05-30 13:06:09.431558"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["project_id", 1], ["updated_at", "2016-05-30 13:06:09.432524"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 13:06:09.434271"], ["size", 1], ["updated_at", "2016-05-30 13:06:09.434271"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-30 13:06:09.435952"], ["due_date", "2016-05-31"], ["name", "Behind Schedule"], ["updated_at", "2016-05-30 13:06:09.435952"]]
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 2[0m  [["project_id", 2], ["updated_at", "2016-05-30 13:06:09.437040"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+ProjectsControllerTest: test_the_project_method_creates_a_project
+-----------------------------------------------------------------
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"Runway", "tasks"=>"start something:2"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 13:06:09.471297"], ["name", "Runway"], ["updated_at", "2016-05-30 13:06:09.471297"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 13:06:09.472241"], ["project_id", 1], ["size", 2], ["title", "start something"], ["updated_at", "2016-05-30 13:06:09.472241"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------
+ProjectsControllerTest: test_routing
+------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+ProjectsControllerTest: test_the_index_method_displays_all_projects_correctly
+-----------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("completed_at", "created_at", "size", "updated_at") VALUES (?, ?, ?, ?)  [["completed_at", "2016-05-29 13:14:29.890494"], ["created_at", "2016-05-30 13:14:29.896493"], ["size", 1], ["updated_at", "2016-05-30 13:14:29.896493"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-30 13:14:29.912763"], ["due_date", "2017-05-30"], ["name", "On Schedule"], ["updated_at", "2016-05-30 13:14:29.912763"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["project_id", 1], ["updated_at", "2016-05-30 13:14:29.913854"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 13:14:29.915590"], ["size", 1], ["updated_at", "2016-05-30 13:14:29.915590"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "due_date", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-30 13:14:29.916705"], ["due_date", "2016-05-31"], ["name", "Behind Schedule"], ["updated_at", "2016-05-30 13:14:29.916705"]]
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "tasks" SET "project_id" = ?, "updated_at" = ? WHERE "tasks"."id" = 2[0m  [["project_id", 2], ["updated_at", "2016-05-30 13:14:29.917288"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+ProjectsControllerTest: test_the_project_method_creates_a_project
+-----------------------------------------------------------------
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"Runway", "tasks"=>"start something:2"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 13:14:29.958049"], ["name", "Runway"], ["updated_at", "2016-05-30 13:14:29.958049"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 13:14:29.958941"], ["project_id", 1], ["size", 2], ["title", "start something"], ["updated_at", "2016-05-30 13:14:29.958941"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+TaskTest: test_a_completed_task_is_complete
+-------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------
+TaskTest: test_a_task_completed_long_ago_does_not_count_toward_velocity
+-----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------
+TaskTest: test_a_task_completed_recently_counts_toward_velocity
+---------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+TaskTest: test_an_uncompleted_task_does_not_count_toward_velocity
+-----------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+ProjectsHelperTest: test_project_name_using_assert_select
+---------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------
+ProjectsHelperTest: test_project_name_with_status_info_behind_schedule
+----------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction

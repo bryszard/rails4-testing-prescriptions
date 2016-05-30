@@ -39,10 +39,12 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :test do
+  gem 'minitest-rails-capybara'
   gem 'capybara'
 end
 
 group :development, :test do
     gem 'rspec-rails', '~> 3.1'
     gem 'byebug'
+    gem 'mocha', require: false
 end
