@@ -1,9 +1,0 @@
-runway:
-  name: Project Runway
-  due_date: 2013-12-18
-  description: |
-    The awesomest project evert.
-    It's really, really great.
-book:
-  name: Write the book
-  due_date: 2014-04-14
