@@ -5808,3 +5808,1585 @@ Started GET "/projects/425856846" for 127.0.0.1 at 2016-05-31 16:57:37 +0200
   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
   [1m[35m (0.0ms)[0m  begin transaction
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (74.8ms)[0m  [1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "due_date" date, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (12.5ms)[0m  CREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "project_id" integer, "role_name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (13.4ms)[0m  CREATE  INDEX "index_roles_on_project_id" ON "roles" ("project_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_roles_on_project_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_roles_on_project_id' AND type='index'
+[0m
+  [1m[35m (13.2ms)[0m  CREATE  INDEX "index_roles_on_user_id" ON "roles" ("user_id")
+  [1m[36m (13.5ms)[0m  [1mCREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "size" integer, "completed_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (14.1ms)[0m  CREATE  INDEX "index_tasks_on_project_id" ON "tasks" ("project_id")
+  [1m[36m (13.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (13.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (14.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (14.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (13.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (13.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160531163234')
+  [1m[36m (12.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160524121714')[0m
+  [1m[35m (13.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160530165905')
+  [1m[36m (13.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160524121626')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-31 16:34:51.620420"], ["name", "Test"], ["updated_at", "2016-05-31 16:34:51.620420"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-31 16:34:51.623151"], ["project_id", 1], ["size", 3], ["title", "Start things"], ["updated_at", "2016-05-31 16:34:51.623151"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-31 16:34:51.624220"], ["project_id", 1], ["size", 2], ["title", "End things"], ["updated_at", "2016-05-31 16:34:51.624220"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'rspec@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 16:34:51.649593"], ["email", "rspec@example.com"], ["encrypted_password", "$2a$04$XhgNeBwPF8vT207ZDAnbY.om8dlUmBBEVV2wM3Scb5eYGnexBUvQe"], ["updated_at", "2016-05-31 16:34:51.649593"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"Runway", "tasks"=>"Start something:2"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-31 16:34:51.660385"], ["name", "Runway"], ["updated_at", "2016-05-31 16:34:51.660385"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-31 16:34:51.661278"], ["project_id", 1], ["size", 2], ["title", "Start something"], ["updated_at", "2016-05-31 16:34:51.661278"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'rspec@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-31 16:34:51.667576"], ["email", "rspec@example.com"], ["encrypted_password", "$2a$04$u9fQUB5I2PXWtxsWoupvvOHbZ9LIngsi57X.WAoPvb7Rrq07f.4QG"], ["updated_at", "2016-05-31 16:34:51.667576"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"", "tasks"=>""}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 15ms (Views: 6.3ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'rspec@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 16:34:51.689724"], ["email", "rspec@example.com"], ["encrypted_password", "$2a$04$X6/I0gc0agezlB52ncLqqOCXf7XIb6hdwQAapkdXk3h3gv.46nD8G"], ["updated_at", "2016-05-31 16:34:51.689724"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("created_at", "size", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-31 16:34:51.691303"], ["size", 2], ["title", "Write section on testing mailers"], ["updated_at", "2016-05-31 16:34:51.691303"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"size"=>"3"}, "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "tasks" SET "size" = ?, "updated_at" = ? WHERE "tasks"."id" = 1[0m  [["size", 3], ["updated_at", "2016-05-31 16:34:51.695820"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'rspec@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 16:34:51.702575"], ["email", "rspec@example.com"], ["encrypted_password", "$2a$04$4pAzue08hRsfFizIzVjzCOFCz0rezoYf/gAt2VrC141LvzyUm.JMa"], ["updated_at", "2016-05-31 16:34:51.702575"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "size", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-31 16:34:51.703981"], ["size", 2], ["title", "Write section on testing mailers"], ["updated_at", "2016-05-31 16:34:51.703981"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"size"=>"3", "completed"=>true}, "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "tasks" SET "completed_at" = ?, "size" = ?, "updated_at" = ? WHERE "tasks"."id" = 1[0m  [["completed_at", "2016-05-31 16:34:51.707915"], ["size", 3], ["updated_at", "2016-05-31 16:34:51.708870"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+TaskMailer#task_completed_email: processed outbound mail in 111.2ms
+
+Sent mail to monitor@tasks.com (5.0ms)
+Date: Tue, 31 May 2016 18:34:51 +0200
+From: from@example.com
+To: monitor@tasks.com
+Message-ID: <574dbd2bc9e29_25e85430e42288e@Brychu.mail>
+Subject: A task has been completed
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+The task Write section on testing mailers was completed at 2016-05-31 16:34:51 UTC.
+
+Thanks,
+The Management
+
+
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 123ms (ActiveRecord: 0.6ms)
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$JsbSr4c3reEVSzmpSJaoP.7N8lJBT9leY4/.KNxsyV7kD59IUCIDO', '2016-05-31 16:34:51', '2016-05-31 16:34:51', 227792459)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "projects"
+  [1m[36m (20.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 227792459]]
+Started GET "/projects/new" for 127.0.0.1 at 2016-05-31 18:34:51 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 16:34:51.879250"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 16:34:51.879250"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 16:34:51.881743"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#new as HTML
+Completed 200 OK in 24ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+Started POST "/projects" for 127.0.0.1 at 2016-05-31 18:34:51 +0200
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "project"=>{"name"=>"Project Runway", "tasks"=>"Task 1:3\r\nTask 2:5\r\n"}, "commit"=>"Create Project"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-31 16:34:51.929645"], ["name", "Project Runway"], ["updated_at", "2016-05-31 16:34:51.929645"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-31 16:34:51.930718"], ["project_id", 1], ["size", 3], ["title", "Task 1"], ["updated_at", "2016-05-31 16:34:51.930718"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-31 16:34:51.931673"], ["project_id", 1], ["size", 5], ["title", "Task 2"], ["updated_at", "2016-05-31 16:34:51.931673"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/projects
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+Started GET "/projects" for 127.0.0.1 at 2016-05-31 18:34:51 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 1]]
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+Started GET "/projects" for 127.0.0.1 at 2016-05-31 18:34:51 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 1]]
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."name" = 'Project Runway' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'test@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 18:34:51 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (1.3ms)
+Completed 200 OK in 19ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-05-31 18:34:51 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'test@example.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 16:34:51.993024"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 16:34:51.993024"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 16:34:51.993465"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+Started GET "/projects" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Started GET "/projects" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (0.4ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 16:34:52.023709"], ["name", "Project Gutenberg"], ["updated_at", "2016-05-31 16:34:52.023709"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'test@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'test@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "roles" ("created_at", "project_id", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-31 16:34:52.036727"], ["project_id", 1], ["updated_at", "2016-05-31 16:34:52.036727"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (0.4ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'test@example.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 16:34:52.054876"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 16:34:52.054876"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 16:34:52.055371"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 1]]
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+Started GET "/projects/1" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'test@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'test@example.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 16:34:52.093521"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 16:34:52.093521"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 16:34:52.093898"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 16:34:52.101517"], ["name", "Project Gutenberg"], ["updated_at", "2016-05-31 16:34:52.101517"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/projects/1" for 127.0.0.1 at 2016-05-31 18:34:52 +0200
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$uD8cP9Xto7CYRylRAH0VS.Q4etVMXnridRMKWpWf93rV44SXdP1X.', '2016-05-31 18:53:33', '2016-05-31 18:53:33', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 18:53:33', '2016-05-31 18:53:33', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 18:53:33', '2016-05-31 18:53:33', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 18:53:33 UTC', '2016-05-31 18:53:33', '2016-05-31 18:53:33', 459687517)
+  [1m[36m (103.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 20:53:33 +0200
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:02:19.892714"], ["name", "Test"], ["updated_at", "2016-05-31 19:02:19.892714"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:02:19.895374"], ["project_id", 980190963], ["size", 3], ["title", "Start things"], ["updated_at", "2016-05-31 19:02:19.895374"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-31 19:02:19.896211"], ["project_id", 980190963], ["size", 2], ["title", "End things"], ["updated_at", "2016-05-31 19:02:19.896211"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'rspec@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-31 19:02:19.921341"], ["email", "rspec@example.com"], ["encrypted_password", "$2a$04$ecPK4hvfzTJ8z8uQgbl9P.INsol4gLZsHFIqUjKDbSM9cegJlR6B2"], ["updated_at", "2016-05-31 19:02:19.921341"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"Runway", "tasks"=>"Start something:2"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792460  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:02:19.931996"], ["name", "Runway"], ["updated_at", "2016-05-31 19:02:19.931996"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:02:19.932912"], ["project_id", 980190963], ["size", 2], ["title", "Start something"], ["updated_at", "2016-05-31 19:02:19.932912"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/projects
+Completed 302 Found in 8ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'rspec@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:02:19.938691"], ["email", "rspec@example.com"], ["encrypted_password", "$2a$04$L9EVLBAbjFGovvphVNBDq.obToxGecGnZFypZwPQqoSK.dhYfzM5K"], ["updated_at", "2016-05-31 19:02:19.938691"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"name"=>"", "tasks"=>""}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792460  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 16ms (Views: 6.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'rspec@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-31 19:02:19.961927"], ["email", "rspec@example.com"], ["encrypted_password", "$2a$04$m1kaxToiCTULp3.L.rDhm.3FFJHntUH2IadPYpUckWrMRxrRDd6TK"], ["updated_at", "2016-05-31 19:02:19.961927"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:02:19.963514"], ["size", 2], ["title", "Write section on testing mailers"], ["updated_at", "2016-05-31 19:02:19.963514"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"size"=>"3"}, "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792460  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tasks" SET "size" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["size", 3], ["updated_at", "2016-05-31 19:02:19.968598"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'rspec@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-31 19:02:19.975077"], ["email", "rspec@example.com"], ["encrypted_password", "$2a$04$3N3vZv9cTGlm9LTVUbX8.uihjh/EwNwvJ3Vm4jNzzrReFKSF45O92"], ["updated_at", "2016-05-31 19:02:19.975077"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "size", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:02:19.976500"], ["size", 2], ["title", "Write section on testing mailers"], ["updated_at", "2016-05-31 19:02:19.976500"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"size"=>"3", "completed"=>true}, "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792460  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTask Load (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tasks" SET "completed_at" = ?, "size" = ?, "updated_at" = ? WHERE "tasks"."id" = 1  [["completed_at", "2016-05-31 19:02:19.979591"], ["size", 3], ["updated_at", "2016-05-31 19:02:19.980087"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+TaskMailer#task_completed_email: processed outbound mail in 110.6ms
+
+Sent mail to monitor@tasks.com (4.8ms)
+Date: Tue, 31 May 2016 21:02:20 +0200
+From: from@example.com
+To: monitor@tasks.com
+Message-ID: <574ddfbc17b26_2ec013050ec21594@Brychu.mail>
+Subject: A task has been completed
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+The task Write section on testing mailers was completed at 2016-05-31 19:02:19 UTC.
+
+Thanks,
+The Management
+
+
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 121ms (ActiveRecord: 0.4ms)
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$ZHrdtemAWTepkc2vrZXcpeHDc1brhw4yfouswsARQq6kGlvwn1OO.', '2016-05-31 19:02:20', '2016-05-31 19:02:20', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:02:20', '2016-05-31 19:02:20', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:02:20', '2016-05-31 19:02:20', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:02:20 UTC', '2016-05-31 19:02:20', '2016-05-31 19:02:20', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, '2016-05-31 19:02:20', '2016-05-31 19:02:20', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, '2016-05-31 19:02:20', '2016-05-31 19:02:20', 298486374, 459687517)[0m
+  [1m[35m (91.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+Started GET "/projects/new" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459  [["current_sign_in_at", "2016-05-31 19:02:20.220283"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:02:20.220283"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:02:20.222317"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProjectsController#new as HTML
+Completed 200 OK in 27ms (Views: 26.8ms | ActiveRecord: 0.0ms)
+Started POST "/projects" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "project"=>{"name"=>"Project Runway", "tasks"=>"Task 1:3\r\nTask 2:5\r\n"}, "commit"=>"Create Project"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:02:20.275276"], ["name", "Project Runway"], ["updated_at", "2016-05-31 19:02:20.275276"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:02:20.276681"], ["project_id", 980190963], ["size", 3], ["title", "Task 1"], ["updated_at", "2016-05-31 19:02:20.276681"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-31 19:02:20.277807"], ["project_id", 980190963], ["size", 5], ["title", "Task 2"], ["updated_at", "2016-05-31 19:02:20.277807"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects
+Completed 302 Found in 8ms (ActiveRecord: 0.8ms)
+Started GET "/projects" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 298486374]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 459687517]]
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 980190962]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 980190963]]
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.6ms)
+Started GET "/projects" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 298486374]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 459687517]]
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 980190962]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 980190963]]
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.5ms)
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."name" = 'Project Runway' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (1.4ms)
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'test@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (0.4ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'test@example.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:02:20.362651"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:02:20.362651"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:02:20.363154"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 9ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 298486374]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 459687517]]
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 980190962]]
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.4ms)
+Started GET "/projects" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 298486374]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 459687517]]
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 980190962]]
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Started GET "/projects" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:02:20.398838"], ["name", "Project Gutenberg"], ["updated_at", "2016-05-31 19:02:20.398838"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'test@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'test@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "roles" ("created_at", "project_id", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-31 19:02:20.410934"], ["project_id", 980190963], ["updated_at", "2016-05-31 19:02:20.410934"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (0.3ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'test@example.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:02:20.426791"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:02:20.426791"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:02:20.427198"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 298486374]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 459687517]]
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 980190962]]
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 980190963]]
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.4ms)
+Started GET "/projects/980190963" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 980190963]]
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'test@example.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (0.3ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'test@example.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:02:20.481250"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:02:20.481250"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:02:20.481632"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 298486374]]
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 459687517]]
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 980190962]]
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-31 19:02:20.491976"], ["name", "Project Gutenberg"], ["updated_at", "2016-05-31 19:02:20.491976"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/projects/980190963" for 127.0.0.1 at 2016-05-31 21:02:20 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 980190963]]
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$IViW5PLaCnd/RJnG8n/fQOSNSyqdkq2I6q2H0oXymccCz8j.0ZQFa', '2016-05-31 19:06:27', '2016-05-31 19:06:27', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:06:27', '2016-05-31 19:06:27', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:06:27', '2016-05-31 19:06:27', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:06:27 UTC', '2016-05-31 19:06:27', '2016-05-31 19:06:27', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, '2016-05-31 19:06:27', '2016-05-31 19:06:27', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, '2016-05-31 19:06:27', '2016-05-31 19:06:27', 298486374, 459687517)[0m
+  [1m[35m (75.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:06:27 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+Completed 401 Unauthorized in 22ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 21:06:27 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (1.4ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/sessions/new.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 60ms (Views: 43.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$DmSf/kG6LdacKzoinIR7gudWv2dD8cWZDKGmDvC2A/0zDUgE6AtLu', '2016-05-31 19:07:00', '2016-05-31 19:07:00', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:07:00', '2016-05-31 19:07:00', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:07:00', '2016-05-31 19:07:00', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:07:00 UTC', '2016-05-31 19:07:00', '2016-05-31 19:07:00', 459687517)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, '2016-05-31 19:07:00', '2016-05-31 19:07:00', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, '2016-05-31 19:07:00', '2016-05-31 19:07:00', 298486374, 459687517)[0m
+  [1m[35m (98.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:07:00 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+Completed 401 Unauthorized in 17ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 21:07:00 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (1.7ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/sessions/new.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 58ms (Views: 43.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$hrwqDD8w74nWtnAAIMDDGenZ0.1yAVTEpaVtqsblg6OGveDYXnGzG', '2016-05-31 19:07:49', '2016-05-31 19:07:49', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:07:49', '2016-05-31 19:07:49', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:07:49', '2016-05-31 19:07:49', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:07:49 UTC', '2016-05-31 19:07:49', '2016-05-31 19:07:49', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, '2016-05-31 19:07:49', '2016-05-31 19:07:49', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, '2016-05-31 19:07:49', '2016-05-31 19:07:49', 298486374, 459687517)[0m
+  [1m[35m (53.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:07:49 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+Completed 401 Unauthorized in 23ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-31 21:07:49 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/shared/_links.html.erb (1.4ms)
+  Rendered /home/pbrych/.rvm/gems/ruby-2.3.0/gems/devise-4.1.1/app/views/devise/sessions/new.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 60ms (Views: 43.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$JBymLLm3Jk2b8/RKrL/VbuIK7VmizxeRcOvUTjxO./ftrfOF47W8W', '2016-05-31 19:09:10', '2016-05-31 19:09:10', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:09:10', '2016-05-31 19:09:10', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:09:10', '2016-05-31 19:09:10', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:09:10 UTC', '2016-05-31 19:09:10', '2016-05-31 19:09:10', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, '2016-05-31 19:09:10', '2016-05-31 19:09:10', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, '2016-05-31 19:09:10', '2016-05-31 19:09:10', 298486374, 459687517)[0m
+  [1m[35m (16.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:09:10 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:09:10.929059"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:09:10.929059"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:09:10.930708"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (45.5ms)
+Completed 200 OK in 68ms (Views: 62.5ms | ActiveRecord: 0.3ms)
+Started POST "/tasks" for 127.0.0.1 at 2016-05-31 21:09:11 +0200
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$a37v5TyRWwDp907dvlcL6eupSh3gg/RBkiuV035shkGe7vDTSI7c2', '2016-05-31 19:11:24', '2016-05-31 19:11:24', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:11:24', '2016-05-31 19:11:24', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:11:24', '2016-05-31 19:11:24', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:11:24 UTC', '2016-05-31 19:11:24', '2016-05-31 19:11:24', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, '2016-05-31 19:11:24', '2016-05-31 19:11:24', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, '2016-05-31 19:11:24', '2016-05-31 19:11:24', 298486374, 459687517)[0m
+  [1m[35m (14.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:11:24 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:11:24.964358"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:11:24.964358"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:11:24.965617"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (42.8ms)
+Completed 200 OK in 63ms (Views: 58.4ms | ActiveRecord: 0.3ms)
+Started POST "/tasks" for 127.0.0.1 at 2016-05-31 21:11:25 +0200
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"project_id"=>"", "title"=>"Find UFOs", "size"=>"2"}, "commit"=>"Add Task"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to 
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$D/V34bYDmk0TxHfb9kX8ZuNrc3xKxJVlDJuYwF3/jdkiyqFIw6PSi', '2016-05-31 19:14:05', '2016-05-31 19:14:05', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:14:05', '2016-05-31 19:14:05', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:14:05', '2016-05-31 19:14:05', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:14:05 UTC', '2016-05-31 19:14:05', '2016-05-31 19:14:05', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, '2016-05-31 19:14:05', '2016-05-31 19:14:05', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, '2016-05-31 19:14:05', '2016-05-31 19:14:05', 298486374, 459687517)[0m
+  [1m[35m (71.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:14:05 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:14:05.313432"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:14:05.313432"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:14:05.315120"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (46.5ms)
+Completed 200 OK in 68ms (Views: 62.3ms | ActiveRecord: 0.3ms)
+Started POST "/tasks" for 127.0.0.1 at 2016-05-31 21:14:05 +0200
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"project_id"=>"", "title"=>"Find UFOs", "size"=>"2"}, "commit"=>"Add Task"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to 
+Completed 500 Internal Server Error in 130309ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$O8WirS1sOWdLUlbZHuUxJO.BT0HsY58j3CAuukA5nGs5sIOfzA0i2', '2016-05-31 19:16:38', '2016-05-31 19:16:38', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:16:38', '2016-05-31 19:16:38', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:16:38', '2016-05-31 19:16:38', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:16:38 UTC', '2016-05-31 19:16:38', '2016-05-31 19:16:38', 459687517)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, '2016-05-31 19:16:38', '2016-05-31 19:16:38', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, '2016-05-31 19:16:38', '2016-05-31 19:16:38', 298486374, 459687517)[0m
+  [1m[35m (28.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:16:38 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:16:38.295843"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:16:38.295843"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:16:38.297949"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 70ms (Views: 64.5ms | ActiveRecord: 0.3ms)
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"
+Started POST "/tasks" for 127.0.0.1 at 2016-05-31 21:19:46 +0200
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"project_id"=>"", "title"=>"Find UFOs", "size"=>"2"}, "commit"=>"Add Task"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to 
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$uNfJYLjQt/AMWBh5c257/OsC3bJEJRctJruMlVxMYc0TY8olzHv6O', '2016-05-31 19:19:59', '2016-05-31 19:19:59', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:19:59', '2016-05-31 19:19:59', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:19:59', '2016-05-31 19:19:59', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:19:59 UTC', '2016-05-31 19:19:59', '2016-05-31 19:19:59', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, '2016-05-31 19:19:59', '2016-05-31 19:19:59', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, '2016-05-31 19:19:59', '2016-05-31 19:19:59', 298486374, 459687517)[0m
+  [1m[35m (81.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:19:59 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:19:59.500547"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:19:59.500547"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:19:59.501694"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 58ms (Views: 53.8ms | ActiveRecord: 0.2ms)
+Started POST "/tasks" for 127.0.0.1 at 2016-05-31 21:19:59 +0200
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"project_id"=>"459687517", "title"=>"Find UFOs", "size"=>"2"}, "commit"=>"Add Task"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+Redirected to http://www.example.com/projects/459687517
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:19:59 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?[0m  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (101.1ms)[0m  [1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "due_date" date, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (12.5ms)[0m  CREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "project_id" integer, "role_name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (13.9ms)[0m  CREATE  INDEX "index_roles_on_project_id" ON "roles" ("project_id")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_roles_on_project_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_roles_on_project_id' AND type='index'
+[0m
+  [1m[35m (13.0ms)[0m  CREATE  INDEX "index_roles_on_user_id" ON "roles" ("user_id")
+  [1m[36m (13.1ms)[0m  [1mCREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "size" integer, "completed_at" datetime, "created_at" datetime, "updated_at" datetime, "project_order" integer) [0m
+  [1m[35m (14.2ms)[0m  CREATE  INDEX "index_tasks_on_project_id" ON "tasks" ("project_id")
+  [1m[36m (13.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (13.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (13.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (13.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (13.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (13.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160531192136')
+  [1m[36m (13.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160524121714')[0m
+  [1m[35m (13.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160531163234')
+  [1m[36m (13.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160530165905')[0m
+  [1m[35m (13.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160524121626')
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-31 19:27:57.170629"], ["name", "Project"], ["updated_at", "2016-05-31 19:27:57.170629"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:27:57.177105"], ["name", "Project"], ["updated_at", "2016-05-31 19:27:57.177105"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "project_order", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:27:57.179138"], ["project_id", 1], ["project_order", 3], ["updated_at", "2016-05-31 19:27:57.179138"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:28:48.579323"], ["name", "Project"], ["updated_at", "2016-05-31 19:28:48.579323"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTask Exists (0.2ms)[0m  SELECT  1 AS one FROM "tasks"  WHERE "tasks"."project_id" = ? LIMIT 1  [["project_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:28:48.604317"], ["name", "Project"], ["updated_at", "2016-05-31 19:28:48.604317"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "project_order", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:28:48.606382"], ["project_id", 1], ["project_order", 3], ["updated_at", "2016-05-31 19:28:48.606382"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project order DESC LIMIT 1[0m  [["project_id", 1]]
+SQLite3::SQLException: near "order": syntax error: SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project order DESC LIMIT 1
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_roles_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_roles_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_roles_on_project_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_roles_on_project_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tasks_on_project_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tasks_on_project_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:30:17.166156"], ["name", "Project"], ["updated_at", "2016-05-31 19:30:17.166156"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTask Exists (0.2ms)[0m  SELECT  1 AS one FROM "tasks"  WHERE "tasks"."project_id" = ? LIMIT 1  [["project_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:30:17.187395"], ["name", "Project"], ["updated_at", "2016-05-31 19:30:17.187395"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "project_order", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:30:17.189271"], ["project_id", 1], ["project_order", 3], ["updated_at", "2016-05-31 19:30:17.189271"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project order DESC LIMIT 1[0m  [["project_id", 1]]
+SQLite3::SQLException: near "order": syntax error: SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project order DESC LIMIT 1
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:36:58.666040"], ["name", "Project"], ["updated_at", "2016-05-31 19:36:58.666040"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTask Exists (0.2ms)[0m  SELECT  1 AS one FROM "tasks"  WHERE "tasks"."project_id" = ? LIMIT 1  [["project_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:36:58.686978"], ["name", "Project"], ["updated_at", "2016-05-31 19:36:58.686978"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "project_order", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:36:58.688898"], ["project_id", 1], ["project_order", 3], ["updated_at", "2016-05-31 19:36:58.688898"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project order DESC LIMIT 1[0m  [["project_id", 1]]
+SQLite3::SQLException: near "order": syntax error: SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project order DESC LIMIT 1
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:37:30.491589"], ["name", "Project"], ["updated_at", "2016-05-31 19:37:30.491589"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTask Exists (0.2ms)[0m  SELECT  1 AS one FROM "tasks"  WHERE "tasks"."project_id" = ? LIMIT 1  [["project_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:37:30.513384"], ["name", "Project"], ["updated_at", "2016-05-31 19:37:30.513384"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "project_order", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:37:30.515670"], ["project_id", 1], ["project_order", 3], ["updated_at", "2016-05-31 19:37:30.515670"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$SnIttpxzdZwwDQaw.tXlNOSyggKscfoCci0wzVLLfTAOnSrJNNhsW', '2016-05-31 19:40:00', '2016-05-31 19:40:00', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:40:00', '2016-05-31 19:40:00', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:40:00', '2016-05-31 19:40:00', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:40:00 UTC', '2016-05-31 19:40:00', '2016-05-31 19:40:00', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, 1, '2016-05-31 19:40:00', '2016-05-31 19:40:00', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, 2, '2016-05-31 19:40:00', '2016-05-31 19:40:00', 298486374, 459687517)[0m
+  [1m[35m (15.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:40:00 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:40:00.994624"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:40:00.994624"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:40:00.996081"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (42.1ms)
+Completed 200 OK in 66ms (Views: 61.1ms | ActiveRecord: 0.3ms)
+Started POST "/tasks" for 127.0.0.1 at 2016-05-31 21:40:01 +0200
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"project_id"=>"459687517", "title"=>"Find UFOs", "size"=>"2"}, "commit"=>"Add Task"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mTask Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "tasks"  WHERE "tasks"."project_id" = ? LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "project_order", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-31 19:40:01.102110"], ["project_id", 459687517], ["project_order", 3], ["size", 2], ["title", "Find UFOs"], ["updated_at", "2016-05-31 19:40:01.102110"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/459687517
+Completed 302 Found in 13ms (ActiveRecord: 0.7ms)
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:40:01 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$9lew6JWccVb0JSCSIvAg7u.L5i4vqFOWY3hyIsXgCW0DAEzg4KPYy', '2016-05-31 19:41:40', '2016-05-31 19:41:40', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:41:40', '2016-05-31 19:41:40', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:41:40', '2016-05-31 19:41:40', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:41:40 UTC', '2016-05-31 19:41:40', '2016-05-31 19:41:40', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, 1, '2016-05-31 19:41:40', '2016-05-31 19:41:40', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, 2, '2016-05-31 19:41:40', '2016-05-31 19:41:40', 298486374, 459687517)[0m
+  [1m[35m (26.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:41:40 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:41:40.514333"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:41:40.514333"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:41:40.515845"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (46.1ms)
+Completed 200 OK in 68ms (Views: 63.0ms | ActiveRecord: 0.3ms)
+Started POST "/tasks" for 127.0.0.1 at 2016-05-31 21:41:40 +0200
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"project_id"=>"459687517", "title"=>"Find UFOs", "size"=>"2"}, "commit"=>"Add Task"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mTask Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "tasks"  WHERE "tasks"."project_id" = ? LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "project_order", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-31 19:41:40.623569"], ["project_id", 459687517], ["project_order", 3], ["size", 2], ["title", "Find UFOs"], ["updated_at", "2016-05-31 19:41:40.623569"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/459687517
+Completed 302 Found in 14ms (ActiveRecord: 0.7ms)
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:41:40 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:45:32.280728"], ["name", "Project"], ["updated_at", "2016-05-31 19:45:32.280728"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "project_order", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:45:32.299418"], ["project_id", 980190963], ["project_order", 1], ["updated_at", "2016-05-31 19:45:32.299418"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "project_order", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-31 19:45:32.301224"], ["project_id", 980190963], ["project_order", 2], ["updated_at", "2016-05-31 19:45:32.301224"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "project_order", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:45:32.302865"], ["project_id", 980190963], ["project_order", 3], ["updated_at", "2016-05-31 19:45:32.302865"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-31 19:47:38.174272"], ["name", "Project"], ["updated_at", "2016-05-31 19:47:38.174272"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "project_order", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:47:38.191541"], ["project_id", 980190963], ["project_order", 1], ["updated_at", "2016-05-31 19:47:38.191541"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "project_order", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2016-05-31 19:47:38.193602"], ["project_id", 980190963], ["project_order", 2], ["updated_at", "2016-05-31 19:47:38.193602"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tasks" ("created_at", "project_id", "project_order", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-05-31 19:47:38.195019"], ["project_id", 980190963], ["project_order", 3], ["updated_at", "2016-05-31 19:47:38.195019"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 980190963]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 980190963]]
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1[0m  [["project_id", 980190963]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 980190963]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 980190963]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 980190963]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$uKKcpZUx0ut/TUJCYC8WQumdqOsllw1IeHn1fFlSs8PcSlYttonXK', '2016-05-31 19:47:43', '2016-05-31 19:47:43', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:47:43', '2016-05-31 19:47:43', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:47:43', '2016-05-31 19:47:43', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:47:43 UTC', '2016-05-31 19:47:43', '2016-05-31 19:47:43', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, 1, '2016-05-31 19:47:43', '2016-05-31 19:47:43', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, 2, '2016-05-31 19:47:43', '2016-05-31 19:47:43', 298486374, 459687517)[0m
+  [1m[35m (62.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:47:43 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:47:43.554706"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:47:43.554706"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:47:43.556762"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 60ms (Views: 55.2ms | ActiveRecord: 0.3ms)
+Started POST "/tasks" for 127.0.0.1 at 2016-05-31 21:47:43 +0200
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"project_id"=>"459687517", "title"=>"Find UFOs", "size"=>"2"}, "commit"=>"Add Task"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mTask Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "tasks"  WHERE "tasks"."project_id" = ? LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "project_order", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-31 19:47:43.654292"], ["project_id", 459687517], ["project_order", 3], ["size", 2], ["title", "Find UFOs"], ["updated_at", "2016-05-31 19:47:43.654292"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/459687517
+Completed 302 Found in 15ms (ActiveRecord: 0.8ms)
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:47:43 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$ZMm73aUksBRQurXuY0H7E.fuOcpRmaDNE83rLgLlxDHfSr95/twPa', '2016-05-31 19:58:12', '2016-05-31 19:58:12', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 19:58:12', '2016-05-31 19:58:12', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 19:58:12', '2016-05-31 19:58:12', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 19:58:12 UTC', '2016-05-31 19:58:12', '2016-05-31 19:58:12', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, 1, '2016-05-31 19:58:12', '2016-05-31 19:58:12', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, 2, '2016-05-31 19:58:12', '2016-05-31 19:58:12', 298486374, 459687517)[0m
+  [1m[35m (39.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:58:12 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 19:58:12.708266"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 19:58:12.708266"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 19:58:12.709871"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (51.8ms)
+Completed 200 OK in 74ms (Views: 67.5ms | ActiveRecord: 0.9ms)
+Started POST "/tasks" for 127.0.0.1 at 2016-05-31 21:58:12 +0200
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"project_id"=>"459687517", "title"=>"Find UFOs", "size"=>"2"}, "commit"=>"Add Task"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mTask Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "tasks"  WHERE "tasks"."project_id" = ? LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "project_order", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-31 19:58:12.824892"], ["project_id", 459687517], ["project_order", 3], ["size", 2], ["title", "Find UFOs"], ["updated_at", "2016-05-31 19:58:12.824892"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/459687517
+Completed 302 Found in 14ms (ActiveRecord: 0.7ms)
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 21:58:12 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$U0N/alSDeYknf4FV/qGor.HJZKXzBP3MgQ4uHE9Csne5jw6NZXWDK', '2016-05-31 20:00:34', '2016-05-31 20:00:34', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 20:00:34', '2016-05-31 20:00:34', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 20:00:34', '2016-05-31 20:00:34', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 20:00:34 UTC', '2016-05-31 20:00:34', '2016-05-31 20:00:34', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, 1, '2016-05-31 20:00:34', '2016-05-31 20:00:34', 980190962, 459687517)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, 2, '2016-05-31 20:00:34', '2016-05-31 20:00:34', 298486374, 459687517)[0m
+  [1m[35m (13.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 22:00:34 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 20:00:34.380298"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 20:00:34.380298"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 20:00:34.381955"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (50.3ms)
+Completed 200 OK in 73ms (Views: 66.9ms | ActiveRecord: 0.7ms)
+Started POST "/tasks" for 127.0.0.1 at 2016-05-31 22:00:34 +0200
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"project_id"=>"459687517", "title"=>"Find UFOs", "size"=>"2"}, "commit"=>"Add Task"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mTask Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "tasks"  WHERE "tasks"."project_id" = ? LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "project_order", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-31 20:00:34.494145"], ["project_id", 459687517], ["project_order", 3], ["size", 2], ["title", "Find UFOs"], ["updated_at", "2016-05-31 20:00:34.494145"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/459687517
+Completed 302 Found in 14ms (ActiveRecord: 0.7ms)
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 22:00:34 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$51wLx32LpCccZHWTL6D38OJPfoEwYbdD6Vgr3ypN1RrzMUQX/MnkC', '2016-05-31 20:01:40', '2016-05-31 20:01:40', 227792459)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Capstone Project', '2016-11-10', '2016-05-31 20:01:40', '2016-05-31 20:01:40', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Mystery tour', '2016-07-01', '2016-05-31 20:01:40', '2016-05-31 20:01:40', 298486374)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "due_date", "created_at", "updated_at", "id") VALUES ('Project Blue Book', '2016-11-30 20:01:40 UTC', '2016-05-31 20:01:40', '2016-05-31 20:01:40', 459687517)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Hunt the aliens', 1, NULL, 1, '2016-05-31 20:01:40', '2016-05-31 20:01:40', 980190962, 459687517)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "tasks" ("title", "size", "completed_at", "project_order", "created_at", "updated_at", "id", "project_id") VALUES ('Write a book', 1, NULL, 2, '2016-05-31 20:01:40', '2016-05-31 20:01:40', 298486374, 459687517)[0m
+  [1m[35m (87.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 227792459]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 22:01:40 +0200
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 227792459[0m  [["current_sign_in_at", "2016-05-31 20:01:40.696363"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2016-05-31 20:01:40.696363"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-31 20:01:40.698410"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (50.3ms)
+Completed 200 OK in 72ms (Views: 66.8ms | ActiveRecord: 0.8ms)
+Started POST "/tasks" for 127.0.0.1 at 2016-05-31 22:01:40 +0200
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"project_id"=>"459687517", "title"=>"Find UFOs", "size"=>"2"}, "commit"=>"Add Task"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mTask Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "tasks"  WHERE "tasks"."project_id" = ? LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tasks" ("created_at", "project_id", "project_order", "size", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-31 20:01:40.811480"], ["project_id", 459687517], ["project_order", 3], ["size", 2], ["title", "Find UFOs"], ["updated_at", "2016-05-31 20:01:40.811480"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/459687517
+Completed 302 Found in 14ms (ActiveRecord: 0.7ms)
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 22:01:40 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.6ms)
+Started PATCH "/tasks/980190963/up" for 127.0.0.1 at 2016-05-31 22:01:40 +0200
+Processing by TasksController#up as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC[0m  [["project_id", 459687517]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "tasks" SET "project_order" = ?, "updated_at" = ? WHERE "tasks"."id" = 980190963[0m  [["project_order", 2], ["updated_at", "2016-05-31 20:01:40.838313"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tasks" SET "project_order" = ?, "updated_at" = ? WHERE "tasks"."id" = 298486374  [["project_order", 3], ["updated_at", "2016-05-31 20:01:40.839358"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/459687517
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms)
+Started GET "/projects/459687517" for 127.0.0.1 at 2016-05-31 22:01:40 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"459687517"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 227792459  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC  [["project_id", 459687517]]
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1[0m  [["project_id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 459687517]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order ASC LIMIT 1  [["project_id", 459687517]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."project_id" = ?  ORDER BY project_order DESC LIMIT 1[0m  [["project_id", 459687517]]
+  Rendered projects/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  rollback transaction

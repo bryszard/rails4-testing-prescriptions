@@ -1,0 +1,9 @@
+one:
+  name: Capstone Project
+  due_date: 2016-11-10
+two:
+  name: Mystery tour
+  due_date: 2016-07-01
+bluebook:
+  name: Project Blue Book
+  due_date: <%= 6.months.from_now %>
